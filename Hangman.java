@@ -1,7 +1,7 @@
 public class Hangman {
     private String playerName;
     private String wordToGuess;
-    final public int MAX_GUESSES = 20;
+    final public int MAX_GUESSES = 10;
     private char[] guesses = new char[MAX_GUESSES];
     public Hangman(String playerName) {
         this.playerName = playerName;
@@ -77,5 +77,18 @@ public class Hangman {
 
     public void setWord(String wordToGuess) {
         this.wordToGuess = wordToGuess;
+    }
+
+    public String getCurrentStageVisual() {
+        int stageIndex = MAX_GUESSES - this.getRemainingGuesses();
+        String[] stages = HangmanVisuals.getEasyStages();
+        if (stageIndex >= stages.length) {
+            stageIndex = stages.length - 1;
+        }
+        return stages[stageIndex];
+    }
+
+    public void displayCurrentStage() {
+        System.out.println(getCurrentStageVisual());
     }
 }

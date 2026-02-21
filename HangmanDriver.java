@@ -24,6 +24,8 @@ public class HangmanDriver {
             System.out.println();
             console.printf("Remaining guesses: %d", hangman.getRemainingGuesses());
             System.out.println();
+            hangman.displayCurrentStage();
+            System.out.println();
         }
         while(hangman.getRemainingGuesses() > 0 && !hangman.getCurrentState().equals(hangman.getWord()));
         if(hangman.getCurrentState().equals(hangman.getWord())) {
